@@ -28,7 +28,7 @@ function App() {
   }
 
   return (
-    <main className="min-h-screen bg-fixed bg-cover bg-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <main className="min-h-screen width=device-width bg-fixed bg-cover bg-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
       {/* Semi-transparent overlay to improve text readability */}
       <div className="absolute inset-0 bg-amber-950/30 backdrop-blur-sm z-0"></div>
 
@@ -41,7 +41,7 @@ function App() {
             <p className="mb-5 text-sm leading-relaxed">
               <i>PuLLi = dot, NeLi = curve</i><br />
             </p>
-            <p className="mb-4 text-sm leading-relaxed w-90 mx-auto font-semibold">
+            <p className="mb-4 text-sm text-center leading-relaxed mx-auto font-semibold">
               At first glance, Kolam may appear to be a simple form of decoration. However, it is much more than that.<br /><br />
               It is a visual representation of sacred geometry, with intricate patterns and symmetrical designs that hold deep spiritual meaning.
               The geometric patterns used in Kolam are believed to have a harmonizing effect on the environment and the individuals who create them.
