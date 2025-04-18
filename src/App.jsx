@@ -2,17 +2,29 @@
 
 import { useState } from "react"
 import backgroundImage from "./assets/background_mandala.jpg"
-import hero_rangoli from "./assets/hero_rangoli.png"
+import hero_rangoli from "./assets/final_rangoli.png"
+import center_mandala from "./assets/center_mandala.png"
+import leaf_mandala from "./assets/leaf_mandala.png"
 
 function App() {
   const [activeTab, setActiveTab] = useState("overview")
 
   const handleTabClick = (tab) => {
-    setActiveTab(tab)
-    const element = document.getElementById(`${tab}-section`)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" })
+    let sectionId = tab;
+    if (tab === "math") {
+      setActiveTab("mathematics");
+      sectionId = "mathematics";
+    } else {
+      setActiveTab(tab);
     }
+    
+    const element = document.getElementById(`${sectionId}-section`);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+  const handleFeedbackClick = () => {
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSeHQaftvykDYLp6ESSYXfk63-uvtCJ5HJHHTVCl5no4h9w_TA/viewform?usp=dialog", "_blank");
   }
 
   return (
@@ -40,17 +52,17 @@ function App() {
 
         {/* Tab navigation - simplified for touch */}
         <div className="top-16 z-20 bg-amber-100/90 shadow-md backdrop-blur-sm">
-          <div className="max-w-md mx-auto grid grid-cols-3 text-center">
-            {["overview", "history", "mathematics"].map((tab) => (
+          <div className="max-w-md mx-auto flex flex-row text-center">
+            {["overview", "history", "math", "feedback"].map((tab) => (
               <button
                 key={tab}
-                onClick={() => handleTabClick(tab)}
-                className={`py-3 px-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-inset focus:ring-iks-pale ${
-                  activeTab === tab
+                onClick={() => handleTabClick(tab === "math" ? "mathematics" : tab)}
+                className={`py-2 px-1 text-xs sm:text-sm font-medium flex-1 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-iks-pale ${
+                  activeTab === (tab === "math" ? "mathematics" : tab)
                     ? "bg-iks-orange text-amber-50"
                     : "bg-amber-100/90 text-amber-900 hover:bg-amber-200/90"
                 }`}
-                aria-selected={activeTab === tab}
+                aria-selected={activeTab === (tab === "math" ? "mathematics" : tab)}
                 role="tab"
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -112,19 +124,49 @@ function App() {
             id="mathematics-section"
             className={`mb-6 bg-white/80 backdrop-blur-sm p-5 rounded-lg shadow-lg ${activeTab === "mathematics" ? "block" : "hidden"}`}
           >
-            <h3 className="text-lg font-bold text-amber-900 mb-3">Mathematical Connection</h3>
-            <p className="text-amber-950 mb-4 text-sm leading-relaxed">
-              Kolam designs incorporate principles of symmetry, fractals, and number theory. The patterns follow
-              specific mathematical rules and sequences that have attracted the attention of mathematicians worldwide.
-            </p>
+            <h3 className="text-lg font-bold text-amber-900 mb-3 text-center">Mathematical Connection</h3>
+          
+            <div className="flex justify-center">
+              <img className="w-50 pb-2" src={center_mandala}/>
+            </div>
+            <p className="text-amber-950 mb-4 text-sm leading-relaxed text-left">
+            The foundation is a 7×7 orthogonal dot grid, centered with a single dot. Counting from the center, there are 6 dots extending outward along each axis totaling 7 in both width and height. <br />Each dot is equidistant from its neighbors, forming a uniform Cartesian grid. <br/>
+            The overall pattern exhibits reflective symmetry across both horizontal, vertical, and diagonal axes. 
+            This ensures that one quadrant's design can be generated and mirrored to form the entire structure.
 
-            <h4 className="text-base font-bold text-amber-900 mb-2">Dot Grid System</h4>
-            <p className="text-amber-950 mb-4 text-sm leading-relaxed">
-              Many Kolams start with a grid of dots (pulli) that serve as the framework. The number and arrangement of
-              these dots follow mathematical patterns, often based on odd numbers considered auspicious.
+            </p>
+            <div className="flex justify-center">
+              <img className="w-50 pb-2" src={leaf_mandala}/>
+            </div>
+            <p className="text-amber-950 mb-4 text-sm leading-relaxed text-left">
+              This design is based on the Fibonacci Triangle, the simplest triangle structure in Fibonacci-based kolams.<br />
+              <div className="text-center">
+                <br />1 dot at the top,<br />
+                2 dots at the base,<br />
+                forming a right-angled triangle.
+              </div>
+              <br />In this case, four such triangles are arranged around a center, each rotated by 90°.
             </p>
           </section>
+           <section
+            id="feedback-section"
+            className={`mb-6 bg-white/80 backdrop-blur-sm p-5 rounded-lg shadow-lg ${activeTab === "feedback" ? "block" : "hidden"}`}
+          >
+            <p className="text-amber-950 mb-6 text-sm leading-relaxed text-center">
+              We, as Team FiboMandala, would appreciate your feedback of our website and Pulli Kolam submission for Prakalp 2025. <br />Your insights will help us improve and create better content about this beautiful art form.
+            </p>
+            
+            <div className="flex justify-center">
+              <button 
+                onClick={handleFeedbackClick}
+                className="bg-iks-orange hover:bg-iks-red text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out shadow-md"
+              >
+                Share Your Feedback
+              </button>
+            </div>
+          </section>
         </div>
+        
         {/* Footer */}
         <footer className="w-full bg-iks-pale/60 backdrop-blur-sm text-amber-900 font-extrabold p-2 mt-6">
           <div className="max-w-md mx-auto text-center">
