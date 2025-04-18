@@ -41,7 +41,7 @@ function App() {
             <p className="mb-5 text-sm leading-relaxed">
               <i>PuLLi = dot, NeLi = curve</i><br />
             </p>
-            <p className="mb-4 text-sm leading-relaxed mx-auto font-semibold text-center">
+            <p className="mb-4 text-[12px] leading-relaxed font-semibold text-center">
               At first glance, Kolam may appear to be a simple form of decoration. However, it is much more than that.<br /><br />
               It is a visual representation of sacred geometry, with intricate patterns and symmetrical designs that hold deep spiritual meaning.
               The geometric patterns used in Kolam are believed to have a harmonizing effect on the environment and the individuals who create them.
