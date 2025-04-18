@@ -33,19 +33,18 @@ function App() {
       <div className="absolute inset-0 bg-amber-950/30 backdrop-blur-sm z-0"></div>
 
       {/* Content container */}
-      <div className="relative z-10">
-        <section className="w-full p-4 bg-gradient-to-b from-iks-red/120 text-amber-50 backdrop-blur-sm border-iks-orange/50  border-t-2 border-l-2 border-r-2">
-          <div className="max-w-md mx-auto text-center py-6">
-          <img className="w-100 pb-10" src={hero_rangoli}></img>
+      <div className="relative z-10 max-w-full overflow-hidden">
+        <section className="w-full p-4 bg-gradient-to-b from-iks-red/120 text-amber-50 backdrop-blur-sm border-iks-orange/50 border-t-2 border-l-2 border-r-2">
+          <div className="max-w-md mx-auto text-center py-6 px-3">
+            <img className="w-full max-w-[280px] mx-auto pb-10" src={hero_rangoli}></img>
             <h2 className="text-2xl font-bold">Pulli Kolam</h2>
             <p className="mb-5 text-sm leading-relaxed">
               <i>PuLLi = dot, NeLi = curve</i><br />
             </p>
-            <p className="mb-4 text-sm text-center leading-relaxed mx-auto font-semibold">
+            <p className="mb-4 text-sm leading-relaxed mx-auto font-semibold text-center">
               At first glance, Kolam may appear to be a simple form of decoration. However, it is much more than that.<br /><br />
               It is a visual representation of sacred geometry, with intricate patterns and symmetrical designs that hold deep spiritual meaning.
               The geometric patterns used in Kolam are believed to have a harmonizing effect on the environment and the individuals who create them.
-
             </p>
           </div>
         </section>
